@@ -64,13 +64,17 @@
     top: 0;
     bottom: 0;
     width: 280px;
+    overflow: hidden;
+  }
 
-    background-image: url('images/QUALIBOT_1.png');
-    background-repeat: no-repeat;
-    background-size: 280px auto;
-    background-position: -20px -15px;
-
-    transition: background-size 0.35s ease;
+  &__image {
+    position: absolute;
+    width: 350px;
+    height: auto;
+    max-width: none;
+    left: -20px;
+    top: -15px;
+    transition: transform 0.35s ease;
   }
 
   @media (max-width: 600px) {
