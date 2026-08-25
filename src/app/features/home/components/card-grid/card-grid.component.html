@@ -1,0 +1,10 @@
+<div class="grid">
+  <app-card
+    *ngFor="let card of cards"
+    [title]="card.title"
+    [description]="card.description"
+    [icon]="card.icon"
+    [color]="card.color"
+    [link]="card.link || '#'"
+  ></app-card>
+</div>

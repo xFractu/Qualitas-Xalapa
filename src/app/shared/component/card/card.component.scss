@@ -1,0 +1,68 @@
+:host {
+  --card-color: #941B80; // morado por defecto
+}
+
+.card {
+  --card-color: #941B80;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  &--aqua {
+    --card-color: #0096AE;
+  }
+
+  &__icon-wrapper {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--card-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 0 4px #fff, 0 0 0 5px #eee;
+  }
+
+&__icon {
+  width: 32px;
+  height: 32px;
+  color: #fff; // todos los SVG usan currentColor/fill="currentColor" -> heredan blanco
+}
+
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--card-color);
+  }
+
+  &__description {
+    margin: 0 0 0.75rem;
+    font-size: 0.85rem;
+    color: #555;
+    flex-grow: 1;
+  }
+
+  &__arrow {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--card-color);
+  }
+}

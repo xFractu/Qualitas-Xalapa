@@ -1,0 +1,94 @@
+.banner {
+  position: relative;
+  display: flex; // necesario porque ahora es un <a>, no un <section>
+  margin: 1.5rem 1rem;
+  background: #941B80;
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+  min-height: 130px;
+  cursor: pointer;
+  text-decoration: none; // quita el subrayado azul por defecto que traen los <a>
+
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    border-color: #ad1283;
+    box-shadow: 0 8px 20px rgba(148, 27, 128, 0.35);
+    transform: translateY(-2px);
+
+    .banner__image-wrapper {
+      background-size: 300px auto;
+    }
+
+    .banner__link {
+      text-decoration: underline;
+    }
+  }
+
+  &__text {
+    flex: 1;
+    z-index: 1;
+    padding-right: 140px;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    font-size: 0.85rem;
+    margin: 0 0 1rem;
+    opacity: 0.95;
+  }
+
+  &__link {
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-block;
+
+    span {
+      margin-left: 4px;
+    }
+  }
+
+  &__image-wrapper {
+    position: absolute;
+    right: 0px;
+    top: 0;
+    bottom: 0;
+    width: 280px;
+
+    background-image: url('/images/QUALIBOT_1.png');
+    background-repeat: no-repeat;
+    background-size: 280px auto;
+    background-position: -20px -15px;
+
+    transition: background-size 0.35s ease;
+  }
+
+  @media (max-width: 600px) {
+    padding-right: 1.25rem;
+    min-height: 150px;
+
+    &__text {
+      padding-right: 110px;
+    }
+
+    &__image-wrapper {
+      width: 160px;
+      background-size: 210px auto;
+      background-position: -15px 10px;
+    }
+
+    &:hover .banner__image-wrapper {
+      background-size: 225px auto;
+    }
+  }
+}
