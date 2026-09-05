@@ -10,6 +10,7 @@ export interface CardData {
   icon: CardIcon;
   color: 'purple' | 'aqua';
   link: string;
+  flipBack?: string;
 }
 
 @Component({

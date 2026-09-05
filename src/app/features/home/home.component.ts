@@ -27,14 +27,16 @@ export class HomeComponent {
       description: 'Solicita asistencia rápida y eficiente en carretera.',
       icon: 'headphones',
       color: 'purple',
-      link: 'https://www.qualitas.com.mx/asistencia-vial'
+      link: 'https://www.qualitas.com.mx/asistencia-vial',
+      flipBack: 'En caso de Reporte de Asistencia Vial Quálitas llame desde el interior de la república al: 800 253 0553'
     },
     {
       title: 'Reporta un siniestro',
       description: 'Reporta tu siniestro de forma rápida y sencilla.',
       icon: 'car',
       color: 'aqua',
-      link: 'https://www.qualitas.com.mx/reporta-siniestro'
+      link: 'https://www.qualitas.com.mx/reporta-siniestro',
+      flipBack: 'En caso de Reporte de Siniestro llame al: 800 800 2880 y 800 288 6700'
     },
     {
       title: 'Condiciones generales',
@@ -62,7 +64,7 @@ export class HomeComponent {
       description: 'Contáctanos por WhatsApp.',
       icon: 'whatsapp',
       color: 'aqua',
-      link: 'https://wa.me/525579627125'
+      link: 'https://wa.me/message/NOB6Q6CIWXY5H1'
     }
   ];
 }

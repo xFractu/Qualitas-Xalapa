@@ -1,43 +1,55 @@
-<a [href]="link" target="_blank" rel="noopener" class="card" [class.card--aqua]="color === 'aqua'">
-  <div class="card__icon-wrapper">
+<a [href]="flipBack ? null : link" [target]="flipBack ? null : '_blank'" [rel]="flipBack ? null : 'noopener'" class="card-flip" [class.card-flip--flippable]="flipBack" [class.card-flip--flipped]="isFlipped" (click)="onCardClick($event)">
 
-    <!-- Auriculares / Asistencia -->
-    <svg *ngIf="icon === 'headphones'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="2.5" y="13" width="4.5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
-      <rect x="17" y="13" width="4.5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
-      <path d="M19.5 19v.5a3 3 0 0 1-3 3h-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-    </svg>
+  <div class="card-flip__inner">
 
-    <!-- Coche (siniestro / deducible) -->
-    <svg *ngIf="icon === 'car'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 16v-3.5L5.8 8a2 2 0 0 1 1.9-1.3h8.6A2 2 0 0 1 18.2 8L20 12.5V16" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-      <path d="M4 16h16v2a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1v-1H7.5v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-      <circle cx="7.5" cy="16" r="1.4" fill="currentColor"/>
-      <circle cx="16.5" cy="16" r="1.4" fill="currentColor"/>
-      <path d="M4 12.5h16" stroke="currentColor" stroke-width="1.8"/>
-    </svg>
+    <div class="card card-flip__front" [class.card--aqua]="color === 'aqua'">
+      <div class="card__icon-wrapper">
 
-    <!-- Escudo con check (condiciones generales) -->
-    <svg *ngIf="icon === 'shield-check'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-      <path d="M9 12l2 2 4-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+        <!-- Auriculares / Asistencia -->
+        <svg *ngIf="icon === 'headphones'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <rect x="2.5" y="13" width="4.5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+          <rect x="17" y="13" width="4.5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M19.5 19v.5a3 3 0 0 1-3 3h-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
 
-    <!-- Documento / póliza -->
-    <svg *ngIf="icon === 'file-text'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7 3.5h7l4 4V19a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 19V5A1.5 1.5 0 0 1 7 3.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-      <path d="M14 3.5V8h4.2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-      <path d="M9 12.5h6M9 15.5h6M9 9.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-    </svg>
+        <!-- Coche (siniestro / deducible) -->
+        <svg *ngIf="icon === 'car'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 16v-3.5L5.8 8a2 2 0 0 1 1.9-1.3h8.6A2 2 0 0 1 18.2 8L20 12.5V16" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M4 16h16v2a1 1 0 0 1-1 1h-1.5a1 1 0 0 1-1-1v-1H7.5v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="7.5" cy="16" r="1.4" fill="currentColor"/>
+          <circle cx="16.5" cy="16" r="1.4" fill="currentColor"/>
+          <path d="M4 12.5h16" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
 
-    <!-- WhatsApp -->
-    <svg *ngIf="icon === 'whatsapp'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.62-13.58zM12.05 18.4h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.44-.16-.25a6.6 6.6 0 0 1 10.24-8.2 6.55 6.55 0 0 1 1.94 4.68 6.6 6.6 0 0 1-6.58 6.6zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.32-.1-.45.1-.13.2-.51.64-.63.77-.11.13-.23.15-.43.05-.2-.1-.83-.3-1.58-.97a5.9 5.9 0 0 1-1.1-1.36c-.11-.2 0-.3.09-.4.1-.1.2-.23.3-.35.1-.11.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.45-1.08-.61-1.48-.16-.38-.32-.33-.45-.34h-.38c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.4 2.15 3.4 3.01.48.2.85.33 1.14.42.48.15.91.13 1.26.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.85.11-.94-.05-.09-.18-.14-.38-.24z" fill="currentColor"/>
-    </svg>
+        <!-- Escudo con check (condiciones generales) -->
+        <svg *ngIf="icon === 'shield-check'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3l7 3v5.5c0 4.5-3 8-7 9.5-4-1.5-7-5-7-9.5V6l7-3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M9 12l2 2 4-4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <!-- Documento / póliza -->
+        <svg *ngIf="icon === 'file-text'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 3.5h7l4 4V19a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 19V5A1.5 1.5 0 0 1 7 3.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M14 3.5V8h4.2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M9 12.5h6M9 15.5h6M9 9.5h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+
+        <!-- WhatsApp -->
+        <svg *ngIf="icon === 'whatsapp'" class="card__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.93 7.93 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.62-13.58zM12.05 18.4h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.44-.16-.25a6.6 6.6 0 0 1 10.24-8.2 6.55 6.55 0 0 1 1.94 4.68 6.6 6.6 0 0 1-6.58 6.6zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.32-.1-.45.1-.13.2-.51.64-.63.77-.11.13-.23.15-.43.05-.2-.1-.83-.3-1.58-.97a5.9 5.9 0 0 1-1.1-1.36c-.11-.2 0-.3.09-.4.1-.1.2-.23.3-.35.1-.11.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.45-1.08-.61-1.48-.16-.38-.32-.33-.45-.34h-.38c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66s.72 1.93.82 2.06c.1.13 1.4 2.15 3.4 3.01.48.2.85.33 1.14.42.48.15.91.13 1.26.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.85.11-.94-.05-.09-.18-.14-.38-.24z" fill="currentColor"/>
+        </svg>
+
+      </div>
+      <h3 class="card__title">{{ title }}</h3>
+      <p class="card__description">{{ description }}</p>
+      <span class="card__arrow">{{ flipBack ? '↻' : '→' }}</span>
+    </div>
+
+    <div *ngIf="flipBack" class="card card-flip__back" [class.card--aqua]="color === 'aqua'">
+      <p class="card-flip__back-text">{{ flipBack }}</p>
+      <span class="card__arrow card-flip__back-arrow">↺ Regresar</span>
+    </div>
 
   </div>
-  <h3 class="card__title">{{ title }}</h3>
-  <p class="card__description">{{ description }}</p>
-  <span class="card__arrow">→</span>
 </a>

@@ -15,4 +15,14 @@ export class CardComponent {
   @Input() icon: CardIcon = 'headphones';
   @Input() color: 'purple' | 'aqua' = 'purple';
   @Input() link = '#';
+  @Input() flipBack?: string;
+
+  isFlipped = false;
+
+  onCardClick(event: Event): void {
+    if (this.flipBack) {
+      event.preventDefault();
+      this.isFlipped = !this.isFlipped;
+    }
+  }
 }
