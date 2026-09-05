@@ -28,7 +28,7 @@ export class HomeComponent {
       icon: 'headphones',
       color: 'purple',
       link: 'https://www.qualitas.com.mx/asistencia-vial',
-      flipBack: 'En caso de Reporte de Asistencia Vial Quálitas llame desde el interior de la república al: 800 253 0553'
+      flipBack: 'En caso de Reporte de Asistencia Vial Quálitas llame desde el interior de la república al: <u>800 253 0553</u>'
     },
     {
       title: 'Reporta un siniestro',
@@ -36,7 +36,7 @@ export class HomeComponent {
       icon: 'car',
       color: 'aqua',
       link: 'https://www.qualitas.com.mx/reporta-siniestro',
-      flipBack: 'En caso de Reporte de Siniestro llame al: 800 800 2880 y 800 288 6700'
+      flipBack: 'En caso de Reporte de Siniestro llame al: <u>800 800 2880</u> y <u>800 288 6700</u>'
     },
     {
       title: 'Condiciones generales',

@@ -47,7 +47,7 @@
     </div>
 
     <div *ngIf="flipBack" class="card card-flip__back" [class.card--aqua]="color === 'aqua'">
-      <p class="card-flip__back-text">{{ flipBack }}</p>
+      <p class="card-flip__back-text" [innerHTML]="flipBack"></p>
       <span class="card__arrow card-flip__back-arrow">↺ Regresar</span>
     </div>
 
